@@ -37,3 +37,31 @@ http://localhost:3000/dashboard
 - المقالات محفوظة في `data/articles.json`.
 - إعدادات الموقع والقائمة وصفحة "من نحن" محفوظة في `data/settings.json`.
 - كل مقال يملك `id` ثابتاً، ويمكن فتحه أيضاً عبر الرابط المقروء `slug`.
+
+## النشر على Dokploy
+
+استخدم إعدادات التطبيق التالية:
+
+```text
+Repository: https://github.com/ammarlaheeb-rgb/jomaa-site
+Branch: main
+Build Type: Dockerfile
+Dockerfile Path: ./Dockerfile
+Port: 3000
+```
+
+أضف Environment Variables:
+
+```text
+PORT=3000
+SESSION_SECRET=ضع-نص-طويل-عشوائي
+ADMIN_USER=اسم-المستخدم
+ADMIN_PASS=كلمة-المرور
+```
+
+للحفاظ على المقالات واللوغو بعد كل deploy، أضف Volumes:
+
+```text
+/app/data
+/app/public/uploads
+```
