@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const dataDir = path.join(__dirname, "..", "data");
+const dataDir = path.join(__dirname, "..", "..", "data");
 const articlesPath = path.join(dataDir, "articles.json");
 const settingsPath = path.join(dataDir, "settings.json");
 

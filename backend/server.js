@@ -20,7 +20,10 @@ const PORT = process.env.PORT || 3000;
 const ADMIN_USER = process.env.ADMIN_USER || "admin";
 const ADMIN_PASS = process.env.ADMIN_PASS || "admin123";
 const SESSION_SECRET = process.env.SESSION_SECRET || "replace-this-secret";
-const uploadsDir = path.join(__dirname, "public", "uploads");
+const frontendDir = path.join(__dirname, "..", "frontend");
+const dashboardDir = path.join(__dirname, "..", "dashboard");
+const publicDir = path.join(frontendDir, "public");
+const uploadsDir = path.join(publicDir, "uploads");
 const markdown = new MarkdownIt({
   html: false,
   linkify: true,
@@ -46,8 +49,11 @@ const upload = multer({
 });
 
 app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "views"));
-app.use(express.static(path.join(__dirname, "public")));
+app.set("views", [
+  path.join(frontendDir, "views"),
+  path.join(dashboardDir, "views")
+]);
+app.use(express.static(publicDir));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());

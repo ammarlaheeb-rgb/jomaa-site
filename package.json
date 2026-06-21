@@ -2,10 +2,10 @@
   "name": "juma-research-site",
   "version": "1.0.0",
   "description": "Formal Arabic publishing site with a simple dashboard.",
-  "main": "server.js",
+  "main": "backend/server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
+    "start": "node backend/server.js",
+    "dev": "node backend/server.js"
   },
   "dependencies": {
     "cookie-parser": "^1.4.6",
